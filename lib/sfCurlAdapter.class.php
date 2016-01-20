@@ -157,7 +157,7 @@ class sfCurlAdapter
     curl_setopt($this->curl, CURLOPT_URL, $uri);
 
     // request headers
-    $m_headers = array_merge($browser->getDefaultRequestHeaders(), $browser->initializeRequestHeaders($headers));
+    $m_headers = array_merge($browser->initializeRequestHeaders(), $browser->getDefaultRequestHeaders(), $headers);
     $request_headers = explode("\r\n", $browser->prepareHeaders($m_headers));
     curl_setopt($this->curl, CURLOPT_HTTPHEADER, $request_headers);
    

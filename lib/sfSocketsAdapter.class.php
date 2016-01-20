@@ -41,7 +41,7 @@ class sfSocketsAdapter
    */
   public function call($browser, $uri, $method = 'GET', $parameters = array(), $headers = array())
   {
-    $m_headers = array_merge(array('Content-Type' => 'application/x-www-form-urlencoded'), $browser->getDefaultRequestHeaders(), $browser->initializeRequestHeaders($headers));
+    $m_headers = array_merge($browser->initializeRequestHeaders(array('Content-Type' => 'application/x-www-form-urlencoded')), $browser->getDefaultRequestHeaders(), $headers);
     $request_headers = $browser->prepareHeaders($m_headers);
 
     $url_info = parse_url($uri);
