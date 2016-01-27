@@ -592,11 +592,6 @@ class sfWebBrowser
   {
     $text = $this->responseText;
 
-    // Curl adapter doesn't need decoding because it does it itself
-    if ($this->adapter instanceof sfCurlAdapter) {
-        return $text;
-    }
-
     // Decode any content-encoding (gzip or deflate) if needed
     switch (strtolower($this->getResponseHeader('content-encoding'))) {
 
